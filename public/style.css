@@ -1,0 +1,66 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Tahoma;
+}
+.content{
+    margin:0 auto;
+    width:  500px;
+    min-height:  300px;
+    border: 1px solid #ccb7b7;
+}
+.content .title {
+    text-align: center;
+    background: #383535;
+    padding:  1px;
+    color: white;
+}
+.nameTitle {
+    font-size: 12px;
+}
+.userbox {
+    padding:5px 30px;
+    border-bottom:1px solid black;
+}
+
+.left {
+    float: left;
+    min-height: 200px;
+    width: 100px;
+    border: 1px solid black;
+    background: #cdf0f5;
+}
+.register {
+    text-align: center;
+}
+
+.boxcontent {
+    padding: 3px 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #2d2dadfc;
+    /* font-weight: bold; */
+}
+
+.boxcontent .onlineUser {
+    margin-bottom: 7px;
+}
+.container {
+    min-height: 300px;
+    background: #90ee904f;
+}
+
+.right {
+    float: right;
+}
+
+.msg {
+    clear:  both;
+    position:  relative;
+    left: 122px;
+}
+
+input#msg {
+    height: 57px;
+    width:  300px;
+}
