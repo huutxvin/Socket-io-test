@@ -5,7 +5,7 @@ app.set('view engine', 'ejs');
 app.set('views','./views');
 var server = require('http').Server(app);
 var io     = require('socket.io')(server);
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT);
 
 var arr_user=[];
 
@@ -22,19 +22,10 @@ io.on('connection',function(socket){
            io.sockets.emit('server-send-user-list',arr_user);
        }
     });
-    // socket.on('client-send-logout', function(){
-    // 	arr_user.splice(
-    // 		arr_user.indexOf(socket.Username), 1
-    // 		);
-    // 	socket.broadcast.emit('server-send-user-log-out', arr_user);
-    // });
-    socket.on('client-send-msg',function(data){
-    	
+    socket.on('client-send-msg',function(data){	
         io.sockets.emit('server-send-msg',{usr:socket.Username, content:data});
     });
 });
-
-
 app.get('/', function(req, res){
 	res.render('trangchu');
 });
