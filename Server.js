@@ -1,10 +1,10 @@
 var express = require('express');
 var app     = express();
 app.use(express.static('public'));
-// app.set('view engine', 'ejs');
-// app.set('views','./views');
-// var server = require('http').Server(app);
-// var io     = require('socket.io')(server);
+app.set('view engine', 'ejs');
+app.set('views','./views');
+var server = require('http').Server(app);
+var io     = require('socket.io')(server);
 app.listen(process.env.PORT || 3000);
 
 var arr_user=[];
@@ -26,6 +26,6 @@ io.on('connection',function(socket){
         io.sockets.emit('server-send-msg',{usr:socket.Username, content:data});
     });
 });
-// app.get('/', function(req, res){
-// 	res.render('trangchu');
-// });
+app.get('/', function(req, res){
+	res.render('trangchu');
+});
