@@ -14,7 +14,7 @@ io.on('connection',function(socket){
 
     socket.on('client-send-name', function(data){
        if(arr_user.indexOf(data) >= 0){
-           socket.emit('server-send-join.fail');
+           socket.emit('server-send-join-fail');
        }else{
            arr_user.push(data);//neu dk thanh cong se them data vao
            socket.Username = data;
@@ -22,9 +22,10 @@ io.on('connection',function(socket){
            io.sockets.emit('server-send-user-list',arr_user);
        }
     });
-    socket.on('client-send-msg',function(data){	
-        io.sockets.emit('server-send-msg',{usr:socket.Username, content:data});
-    });
+   socket.on('client-send-msg',function(data){
+      socket.time = new Date().getMilliseconds();
+        io.sockets.emit('server-send-msg',{usr:socket.Username, content:data, time:socket.time.toString()});
+      });
 });
 app.get('/', function(req, res){
 	res.render('trangchu');
