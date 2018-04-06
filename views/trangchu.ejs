@@ -38,10 +38,10 @@
 	        </section>
        </div>
     <script src="jquery-3.3.1.min.js"></script>
-    <script src="https://huutestsocketio.herokuapp.com/socketio/socket.io/socket.io.js"></script>
+    <script src="http://huu.yez.vn/socket.io/socket.io.js"></script>
     <script src="main.jquery.js"></script>   
 	<script>
-		var socket = io("https://huutestsocketio.herokuapp.com");
+		var socket = io('http://huu.yez.vn');
 
 		socket.on('server-send-join-fail', function(){
 			alert('Username is existed. Choose and other name');
@@ -49,6 +49,7 @@
 		socket.on('server-send-join-success', function(data){
 			$('#currentUser').html(data);
 			$('.register').hide(2000);
+	        $('.chatForm').show(3000);
 		});
 		socket.on('server-send-user-list', function(data){
 			$('.boxcontent').html("");
@@ -57,7 +58,8 @@
             });
 		});
 		socket.on('server-send-msg',function(data){
-            $('#listMsg').append("<div class='msg'>" + data.usr + ":" + data.content + data.time + "</div>");     
+            $('#listMsg').append("<div class='msg'>" + data.usr + ":" + data.content + data.time + "</div>");
+           
 		});
 	</script>
 </body>
