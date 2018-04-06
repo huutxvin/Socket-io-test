@@ -38,10 +38,10 @@
 	        </section>
        </div>
     <script src="jquery-3.3.1.min.js"></script>
-    <script src="http://huu.yez.vn/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="main.jquery.js"></script>   
 	<script>
-		var socket = io('http://huu.yez.vn');
+		var socket = io('http://localhost:3000');
 
 		socket.on('server-send-join-fail', function(){
 			alert('Username is existed. Choose and other name');
